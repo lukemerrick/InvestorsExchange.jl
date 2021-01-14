@@ -3,6 +3,17 @@ uuid = "0f939db3-a1c8-4fd2-9e94-93ecf73338d6"
 authors = ["Luke Merrick <contact@lukemerrick.com> and contributors"]
 version = "0.1.0"
 
+[deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+GZip = "92fee26a-97fe-5a0c-ad85-20a5f3185b63"
+HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
+JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+Logging = "56ddb016-857b-54e1-b83d-db4d58db5568"
+Parquet = "626c502c-15b0-58ad-a749-f091afb673ae"
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+ProgressMeter = "92933f4c-e287-5a05-a399-4b506db050ca"
+URIParser = "30578b45-9adc-5946-b283-645ec420af67"
+
 [compat]
 julia = "1"
 
