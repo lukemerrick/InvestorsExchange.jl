@@ -87,4 +87,4 @@ end
 while length(thread_results) > 0
     wait(pop!(thread_results))
 end
-rm(pcap_dir, recursive=True)
+rm(pcap_dir, recursive=true)
