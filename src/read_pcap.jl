@@ -103,7 +103,7 @@ function read_trade_report_messages(
 )::Vector{TradeReportMessage}
     trade_messages = TradeReportMessage[]
     GZip.open(gzipped_pcap_filepath, "r") do io
-        progress_bar = show_progress_bar ? ProgressUnknown() : nothing
+        progress_bar = show_progress_bar ? ProgressMeter.ProgressUnknown() : nothing
         messages_left = 0
         n_trades = 0
         while !eof(io)

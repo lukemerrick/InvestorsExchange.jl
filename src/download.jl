@@ -23,7 +23,7 @@ function download_file(link::String, out_dir::String; chunk_bytes::Int=4096, sho
         downloaded_bytes = 0
         response_header = HTTP.startread(http)
         total_bytes = parse(Int, HTTP.header(response_header, "Content-Length"))
-        progress_bar = show_progress_bar ? Progress(total_bytes) : nothing
+        progress_bar = show_progress_bar ? ProgressMeter.Progress(total_bytes) : nothing
         open(filepath, "w") do io
             while !HTTP.eof(http)
                 chunk = HTTP.read(http, chunk_bytes)
