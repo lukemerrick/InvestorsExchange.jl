@@ -68,7 +68,7 @@ end
 Reads PCAP file contents until header encountered.
 Returns the varying portion of the header.
 """
-function seek_header(io, protocol_id)::Union{TPHeaderVaryingHalf, nothing}
+function seek_header(io, protocol_id)::Union{TPHeaderVaryingHalf, Nothing}
     match_bytes = [
         reinterpret(UInt8, [IEX_VERSION]);
         reinterpret(UInt8, [IEX_RESERVED]);
@@ -98,7 +98,7 @@ end
 
 """Read all TradeReportMessage messages in a PCAP file."""
 function read_trade_report_messages(
-    gzipped_pcap_filepath::String,
+    gzipped_pcap_filepath::String;
     show_progress_bar::Bool=true,
 )::Vector{TradeReportMessage}
     trade_messages = TradeReportMessage[]
