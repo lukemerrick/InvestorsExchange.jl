@@ -13,6 +13,7 @@ ProgressMeter = "92933f4c-e287-5a05-a399-4b506db050ca"
 URIParser = "30578b45-9adc-5946-b283-645ec420af67"
 
 [compat]
+DataFrames = "0.22"
 julia = "1"
 
 [extras]
