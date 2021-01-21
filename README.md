@@ -1,7 +1,7 @@
-# IEX
+# IEXTools
 Downloads [tick-by-tick historical trade data from the IEX exchange](https://iextrading.com/trading/market-data/#hist). Specifically, this tool downloads the archived data feed files which IEX uploads daily on a T+1 basis, and supports parsing these files into tabular format. 
 
-Inspired by [this Python implementation](https://github.com/vfrazao-ns1/IEXTools/tree/5f4755f99920dd82c62f050c03b30816342ad519/IEXTools).
+Inspired by [this Python implementation](https://github.com/vfrazao-ns1/IEXTools/).
 
 ## Features
 ### General Features
