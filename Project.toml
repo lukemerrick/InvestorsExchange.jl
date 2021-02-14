@@ -13,6 +13,12 @@ ProgressMeter = "92933f4c-e287-5a05-a399-4b506db050ca"
 URIParser = "30578b45-9adc-5946-b283-645ec420af67"
 
 [compat]
+DataFrames = "0.22.2"
+GZip = "0.5.1"
+HTTP  = "0.9.2"
+JSON  = "0.21.1"
+ProgressMeter = "1.4.1"
+URIParser = "0.4.1"
 julia = "1"
 
 [extras]

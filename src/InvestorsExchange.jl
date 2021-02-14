@@ -1,4 +1,4 @@
-module IEX
+module InvestorsExchange
 
 export
     # download functions
