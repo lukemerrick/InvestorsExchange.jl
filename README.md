@@ -34,3 +34,17 @@ If you don't care about taking advantage of multi-threading or specifying a cust
 ### Download script details
 
 In the download script, I avoid downloading more than a handful of raw PCAP data files to disk by running downloads [asynchronously](https://docs.julialang.org/en/v1/manual/asynchronous-programming/) with downloaded filenames piped into a limited-sized [Channel](https://docs.julialang.org/en/v1/base/parallel/#Base.Channel). As downloads complete, the file paths are consumed by [multi-threaded](https://docs.julialang.org/en/v1/manual/multi-threading/) parsing code that reads the `TradeReportMessage` messages, organizes them into a Julia `DataTable`, and writes them to disk in parquet format. To take advantage of this parallelization and speed up the parsing of literally every TOPS feed message that IEX has issued since mid 2017, it is recommended you include the `--threads` flag.
+
+### A note on TOPS vs. DEEP
+
+As of v0.1.1, this package only parses the trade report messages in any feed it reads. If you want to read from the DEEP feed or the TOPS v1.5 feed, you'll need to overwrite the default value of the `protocol_magic_bytes` argument in the `read_trade_report_messages` function.
+
+**Example**
+```julia
+import InvestorsExchange as IEX
+
+IEX.read_trade_report_messages("/tmp/20210420_IEXTP1_DEEP1.0.pcap.gz"; protocol_magic_bytes=IEX.DEEP_PROTOCOL_ID_1_0)
+```
+
+However, since TOPS and DEEP both contain the trade report messages, there is little reason to use DEEP (which tends to be bigger) to parse the trade report messages. You should expect faster download and parse speeds with TOPS, and thus it's recommended to stick with TOPS.
+
