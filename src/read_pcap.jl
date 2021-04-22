@@ -100,6 +100,7 @@ end
 function read_trade_report_messages(
     gzipped_pcap_filepath::String;
     show_progress_bar::Bool=true,
+    protocol_magic_bytes::UInt16=TOPS_PROTOCOL_ID_1_6
 )::Vector{TradeReportMessage}
     trade_messages = TradeReportMessage[]
     GZip.open(gzipped_pcap_filepath, "r") do io
@@ -109,7 +110,7 @@ function read_trade_report_messages(
         while !eof(io)
             # seek for next header while no messages left
             while messages_left == 0
-                tp_header = seek_header(io, TOPS_PROTOCOL_ID_1_6)
+                tp_header = seek_header(io, protocol_magic_bytes)
                 if tp_header === nothing
                     break
                 end
