@@ -24,12 +24,15 @@ logger = Logging.ConsoleLogger()
 Logging.global_logger(logger)
 
 # define methods for downloading and parsing PCAP files in an efficient, parallelized manner
-function rewrite_trades(in_filepath::String, out_filepath::String)::String
+function rewrite_trades(in_filepath::String, out_filepath::String)::Union{String, Nothing}
     trade_messages = IEX.read_trade_report_messages(in_filepath; show_progress_bar=false)
     rm(in_filepath)
     df = IEX.assemble_trade_report_frame(trade_messages)
-    write_parquet(out_filepath, df)
-    return out_filepath
+    if nrow(df) > 0
+        write_parquet(out_filepath, df)
+        return out_filepath
+    end
+    return nothing
 end
 
 function async_download(download_links, out_dir, out_filepath_channel)
