@@ -166,7 +166,7 @@ function assemble_trade_report_frame(trade_report_messages::Vector{TradeReportMe
     end
 
     # convert types
-    cols[:symbol] = [transcode(String, [x...]) for x in cols[:symbol]]
+    cols[:symbol] = [strip(transcode(String, [x...])) for x in cols[:symbol]]
     cols[:sale_condition_flags] = Int64.(cols[:sale_condition_flags])
     cols[:size] = Int64.(cols[:size])
 
