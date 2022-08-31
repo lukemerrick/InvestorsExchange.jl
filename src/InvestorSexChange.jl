@@ -1,4 +1,4 @@
-module InvestorsExchange
+module InvestorSexChange
 
 export
     # download functions
