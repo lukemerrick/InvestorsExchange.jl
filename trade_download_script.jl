@@ -7,7 +7,7 @@ Change the PARQUET_DIR constant to adjust the output file.
 """
 
 import Base: Threads
-import InvestorsExchange as IEX
+import InvestorSexChange as IEX
 import Logging
 import Parquet: write_parquet
 import Pkg
