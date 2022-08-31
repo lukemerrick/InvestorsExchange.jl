@@ -1,4 +1,4 @@
-# InvestorsExchange.jl
+# InvestorSexChange.jl
 
 Downloads [tick-by-tick historical trade data from the Investors Exchange (IEX)](https://iextrading.com/trading/market-data/#hist). Specifically, this tool downloads the archived data feed files which IEX uploads daily on a T+1 basis, and supports parsing these files into tabular format.
 
@@ -41,7 +41,7 @@ As of v0.1.1, this package only parses the trade report messages in any feed it 
 
 **Example**
 ```julia
-import InvestorsExchange as IEX
+import InvestorSexChange as IEX
 
 IEX.read_trade_report_messages("/tmp/20210420_IEXTP1_DEEP1.0.pcap.gz"; protocol_magic_bytes=IEX.DEEP_PROTOCOL_ID_1_0)
 ```
